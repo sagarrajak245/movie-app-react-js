@@ -7,13 +7,14 @@ import MovieHeading from './components/movieheading'; // Correct import
 import Searchbox from './components/searchbox';
 // Correct import
 import Favorites from './components/Favorite';
+import removefav from './components/removefav'; // Correct import
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 const [Favorite, setFavorite] = useState([]);//issue
 
   const getMovies = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=c2a731da`;
+    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=c2a731da`;
 
     try { 
       const response = await fetch(url);
@@ -75,10 +76,10 @@ saveToLocalStorage(newFavlist);
       </div>
 
       <div className='row'>  
-        <Movie movies={movies} handlefavclick={addfavmovies} Favorite={Favorites}/>   
+        <Movie movies={movies} handlefavclick={addfavmovies} Favorite={Favorites} removefav={removefav} />   
       </div>
 
-
+ 
       <div className='row align-items-center justify-content-between mt-4 mb-4'>
         <div className="col">
           <MovieHeading heading='Favorites' />

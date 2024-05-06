@@ -2,6 +2,7 @@ import React from 'react';
 
 function Movie(props) {
 const Favorite=props.Favorite;
+const removefav=props.removefav;
 if(!props.movies){
     return null;
 }
@@ -17,9 +18,10 @@ if(!props.movies){
           <div 
           onClick={() =>props.handlefavclick(movie)   }
           className='overlay d-flex align-items-center justify-content-center'
-        
           >
-            <Favorite/>   
+            <Favorite/>  
+            <removefav/> 
+
           </div>
          
         </div>  
